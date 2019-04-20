@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import Issue from './models/Issue';
+import Character from './models/character';
 
 const app = express();
 const router = express.Router();
@@ -72,6 +73,64 @@ router.route('/issues/update/:id').post((req, res) => {
 
 router.route('/issues/delete/:id').get((req, res) => {
     Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
+        if (err)
+            console.log(err);
+        else 
+            res.json('Remove Successfully');
+        
+    });
+});
+
+
+router.route('/characters').get((req, res) => {
+    Character.find((err, characters) => {
+        if (err)
+            console.log(err);
+        else 
+            res.json(characters);
+    });
+});
+
+router.route('/characters/:id').get((req, res) => {
+    Character.findById(req.params.id, (err, character) => {
+        if (err) 
+            console.log(err);
+        else 
+            res.json(character);
+    });
+});
+
+router.route('/characters/add').post((req, res) => {
+    let character = new Character(req.body);
+    character.save()
+        .then(character => {
+            res.status(200).json({'issue': 'Added Successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create a new record');
+        });
+});
+
+
+router.route('/characters/update/:id').post((req, res) => {
+    Character.findById(req.params.id, (err, character) => {
+        if(!character)
+            return next(new Error('Could not load document'));
+        else {
+            character.name = req.body.name;
+            character.gender = req.body.gender;            
+
+            character.save().then(character => {
+                res.json('Update done');
+            }).catch(err => {
+                res.status(400).send('Update failed');
+            });     
+        }       
+    });
+});
+
+router.route('/characters/delete/:id').get((req, res) => {
+    Character.findByIdAndRemove({_id: req.params.id}, (err, character) => {
         if (err)
             console.log(err);
         else 

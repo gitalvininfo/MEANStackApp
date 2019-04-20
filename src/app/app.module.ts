@@ -15,11 +15,17 @@ import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
 
 import {IssueService } from './issue.service';
+import { CharactersComponent} from './components/characters/characters.component';
+import { CreatecharacterComponent } from './components/createcharacter/createcharacter.component';
+import { EditcharacterComponent } from './components/editcharacter/editcharacter.component';
 
 const routes: Routes = [
   {path: 'create', component: CreateComponent},
   {path: 'edit/:id', component: EditComponent},
   {path: 'list', component: ListComponent},
+  {path: 'characters', component: CharactersComponent},
+  {path: 'createcharacter', component: CreatecharacterComponent},
+  {path: 'editcharacter/:id', component: EditcharacterComponent},
   {path: '', redirectTo: 'list', pathMatch: 'full'} // when ng serve, it will redirect to this link
 ];
 
@@ -29,7 +35,10 @@ const routes: Routes = [
     AppComponent,
     ListComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    CharactersComponent,
+    CreatecharacterComponent,
+    EditcharacterComponent,
   ],
   imports: [
     BrowserModule,

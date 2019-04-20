@@ -13,7 +13,7 @@ import { IssueService } from '../../issue.service';
 export class ListComponent implements OnInit {
 
   issues: Issue[];
-  displayedColumns = ['title', 'responsible', 'severity', 'status', 'actions'];
+  displayedColumns = ['title', 'description', 'responsible', 'severity', 'status', 'actions'];
 
   constructor(private issueService: IssueService, private router: Router) { }
 
