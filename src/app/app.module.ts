@@ -5,15 +5,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatButtonModule,
 MatCardModule, MatTableModule, MatDividerModule, MatSnackBarModule} from '@angular/material';
-
-
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './components/list/list.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
-
 import {IssueService } from './issue.service';
 import { CharactersComponent} from './components/characters/characters.component';
 import { CreatecharacterComponent } from './components/createcharacter/createcharacter.component';
@@ -47,14 +43,14 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule, 
-    MatOptionModule, 
-    MatSelectModule, 
-    MatIconModule, 
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatIconModule,
     MatButtonModule,
-    MatCardModule, 
-    MatTableModule, 
-    MatDividerModule, 
+    MatCardModule,
+    MatTableModule,
+    MatDividerModule,
     MatSnackBarModule,
     ReactiveFormsModule
   ],

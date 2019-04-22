@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class CharacterService {
     return this.http.get(`${this.uri}/characters/${id}`);
   }
 
-
   addCharacter(name, gender) {
     const character = {
       name: name,
@@ -32,6 +31,7 @@ export class CharacterService {
       name: name,
       gender: gender
     };
+    // referring to the route in serverjs to connect in mongodb
     return this.http.post(`${this.uri}/characters/update/${id}`, character);
   }
 

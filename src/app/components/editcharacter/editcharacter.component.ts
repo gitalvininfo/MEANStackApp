@@ -17,7 +17,7 @@ export class EditcharacterComponent implements OnInit {
   character: any = {};
   updateForm: FormGroup;
 
-  constructor(private characterService: CharacterService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
+  constructor(private characterService: CharacterService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) {
     this.createForm();
   }
 
